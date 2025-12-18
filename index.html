@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special for You ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="lagu" loop><source src="lagu.mp3" type="audio/mpeg"></audio>
+
+    <div class="container">
+            <div class="card">
+    <img src="foto1.jpg" id="foto-slide" class="foto-bulat">
+    <h2 id="judul">Halo! ❤️</h2>
+    <div class="message-box"><p id="pesan">Klik tombol dibawah buat mulai ya sayang...</p></div>
+
+    <div id="extra-buttons" style="display: none; margin-top: 20px;">
+        <div class="extra-group">
+            <button onclick="loncatKeSlide(5)" class="btn-extra">Nonton Video 🎬</button>
+            <button onclick="loncatKeSlide(6)" class="btn-extra">Playlist Spotify 🎵</button>
+            <button onclick="loncatKeSlide(7)" class="btn-extra">Baca Surat ✉️</button>
+        </div>
+    </div>
+
+    <button id="btn-action-rahasia" style="display: none; width: 100%; padding: 12px; border-radius: 25px; border: none; background: #ff6b81; color: white; font-weight: bold; margin-top: 20px; cursor: pointer;"></button>
+
+    <div class="button-group" style="margin-top: 20px;">
+        <button onclick="backSlide()" id="btn-back" style="display: none;">Back</button>
+        <button onclick="mulaiAtauLanjut()" id="btn-next">Mulai ✨</button>
+    </div>
+</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

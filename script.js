@@ -13,7 +13,7 @@ const daftarKonten = [
     // Slide Rahasia
     { judul: "Nonton Video Yuk 🎬", pesan: "Video ini adalah video vlogku selama pembuatan web ini, jangan ilfeel sama muka ku yang lagi jelek dan rambut yang jegrik itu ya hehehehe", foto: "foto6.jpg", link: "https://youtu.be/D_jbiXg7uj0", label: "Putar Video" },
     { judul: "Special Playlist for Special People🎵", pesan: "Dengerin Playlist yang aku buat khusus buat kamu, semoga suka yaa..!", foto: "foto7.png", link: "https://open.spotify.com/playlist/4MaGBzcHy4y3wk4IEsWawz?si=ac9c7e5fe86745c5&pt=3b1550aa78e099c979e22ccde09e040c", label: "Buka Playlist" },
-    { judul: "Surat Buat Sayang ✉️", pesan: "Surat ini spesial aku buat 4u, oh iya nanti kalo uda buka suratnya lagunya langsung skip ke detik 30 aja ya", foto: "foto8.png", link: "https://gifft.me/o/b/8ext3rvlb5du68ztt37zkcbc", label: "Baca Surat" }
+    { judul: "Surat Buat Sayang ✉️", pesan: "Surat ini spesial aku buat 4u, oh iya nanti kalo uda buka suratnya lagunya langsung skip ke detik 30 aja ya", foto: "foto8.png", link: "https://gifft.me/o/b/gx0t1ipb9jqmr5uqije4xrsb", label: "Baca Surat" }
 ];
 
 function mulaiAtauLanjut() {

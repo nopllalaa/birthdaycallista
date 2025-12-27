@@ -1,298 +1,234 @@
+:root { 
+    --pink: #ff788d; 
+    --soft: #ffe4e8; 
+    --purple: #6c5ce7;
+    --yellow: #fdcb6e;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
+}
+
 body {
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    /* Efek Gradient Warna-Warni yang Bergerak */
-    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ffd1ff,#c877cd, #8b4c82);
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden; 
+    background: linear-gradient(-45deg, #ff788d, #fec7d7, #d4a5ff, #a2d2ff);
     background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
-    font-family: 'Poppins', sans-serif;
+    animation: gradientMove 10s ease infinite;
 }
 
-/* Animasi Pergerakan Warna Background */
-@keyframes gradientBG {
+@keyframes gradientMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Tambahan Efek Kilauan Bintang (Sparkle) */
-.sparkle-bg {
+/* --- EFEK HATI MELAYANG --- */
+#love-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     pointer-events: none;
-    z-index: -2; /* Di bawah hati dan di bawah kartu */
-    background-image: 
-        radial-gradient(circle, white 1px, transparent 1px),
-        radial-gradient(circle, white 1px, transparent 1px);
-    background-size: 50px 50px;
-    background-position: 0 0, 25px 25px;
-    opacity: 0.3;
-    animation: twinkle 2s infinite alternate;
+    z-index: 1;
+    overflow: hidden;
 }
 
-@keyframes twinkle {
-    from { opacity: 0.1; }
-    to { opacity: 0.4; }
-}
-
-
-.container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    width: 320px;
-    text-align: center; /* Membuat semua teks di dalam kartu jadi di tengah */
-}
-
-.message-box {
-    background: #fffafa;
-    border-left: 4px solid #ff788d;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 8px;
-    min-height: 80px;
-    text-align: left; /* Teks pesan tetap rata kiri agar estetik */
-}
-.foto-bulat {
-    /* Atur lebar dan tinggi di sini (misal 150px agar tidak kebesaran) */
-    width: 150px;
-    height: 150px;
-    
-    /* Membuat foto jadi bulat sempurna */
-    border-radius: 50%;
-    
-    /* Menjaga foto agar tidak gepeng/penyet */
-    object-fit: cover;
-    
-    /* Bingkai pink estetik */
-    border: 5px solid #ffb6c1;
-    
-    /* Mengatur posisi ke tengah */
-    display: block;
-    margin: 0 auto 20px auto;
-    
-    /* Efek bayangan halus */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* Jarak antar tombol */
-}
-
-/* Styling Umum untuk Kedua Tombol */
-button {
-    border: none;
-    padding: 12px 25px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 50px; /* Ini yang bikin bentuknya lonjong bulat, bukan kotak */
-    cursor: pointer;
-    transition: all 0.3s ease; /* Biar pas berubah warna ada animasinya halus */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    outline: none;
-}
-
-/* Tombol Lanjut (Warna Pink/Utama) */
-#btn-next {
-    background: linear-gradient(135deg, #ff6b81, #ff788d); /* Warna gradasi biar mewah */
-    color: white;
-}
-
-#btn-next:hover {
-    transform: translateY(-3px); /* Tombol sedikit naik pas disentuh */
-    box-shadow: 0 6px 20px rgba(255, 107, 129, 0.4);
-    background: linear-gradient(135deg, #ff788d, #ff6b81);
-}
-
-/* Tombol Kembali (Warna Soft) */
-#btn-back {
-    background: #f0f0f0;
-    color: #888;
-}
-
-#btn-back:hover {
-    background: #e0e0e0;
-    color: #444;
-    transform: translateY(-3px);
-}
-
-/* Biar tombol keliatan ditekan pas diklik */
-button:active {
-    transform: translateY(0);
-}
-/* Style untuk partikel hati */
-.heart-sprinkle {
-    position: fixed;
-    color: #ffb6c1; /* Warna pink soft */
-    font-size: 20px;
-    user-select: none;
+.falling-love {
+    position: absolute;
+    top: 110vh;
     pointer-events: none;
-    z-index: -1; /* Supaya di belakang kartu */
+    z-index: 1;
     animation: floatUp linear forwards;
+    user-select: none;
 }
 
 @keyframes floatUp {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-10vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-#extra-buttons {
-    width: 100%;
-    margin-bottom: 20px;
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
 }
 
-.extra-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.btn-extra {
-    display: block;
-    background: white;
-    color: #ff6b81;
-    border: 2px solid #ff6b81;
-    padding: 10px;
-    border-radius: 20px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-}
-/* Styling untuk Tombol Ekstra di Slide Terakhir */
-#extra-buttons {
-    margin: 20px 0;
-}
-
-.extra-group {
-    display: flex;
-    flex-direction: column; /* Tombol disusun berderet ke bawah */
-    gap: 12px; /* Jarak antar tombol */
-}
-
-.btn-extra {
-    display: block;
-    background: #ffffff;
-    color: #ff6b81;
-    border: 2px solid #ff6b81;
-    padding: 12px;
-    border-radius: 25px; /* Biar bentuknya bulat lonjong */
-    text-decoration: none; /* Hilangin garis bawah link */
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.btn-extra:hover {
-    background: #ff6b81;
-    color: white;
-    transform: translateY(-3px);
-}
-
-/* Styling untuk Efek Hati Melayang (Sprinkle) */
-.heart-sprinkle {
-    position: fixed;
-    top: 100vh;
-    color: #ffb6c1;
-    font-size: 20px;
-    user-select: none;
-    pointer-events: none;
-    z-index: -1; /* Biar ada di belakang kartu */
-    animation: floatUp linear forwards;
-}
-
-@keyframes floatUp {
-    to {
-        transform: translateY(-110vh) rotate(360deg);
-    }
-}
-#btn-action-rahasia {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(135deg, #ff6b81, #ff4757);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-weight: bold;
-    margin-top: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255, 107, 129, 0.3);
-}
-.card {
-    /* ... kode lama kamu ... */
-    transition: all 0.5s ease-in-out;
-}
-/* Styling untuk Efek Hati Melayang (Sprinkle) */
-.heart-sprinkle {
-    position: fixed;
-    bottom: -10px; /* Mulai dari bawah layar */
-    color: #ffb6c1; /* Warna pink soft */
-    font-size: 20px;
-    user-select: none;
-    pointer-events: none;
-    z-index: -1; /* Supaya ada di belakang kartu */
-    animation: floatUp linear forwards;
-}
-
-@keyframes floatUp {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-/* Efek kartu bercahaya */
-.card {
-    position: relative;
+/* --- CONTAINER & SLIDES --- */
+.container { 
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     z-index: 10;
-    box-shadow: 0 0 20px rgba(255, 107, 129, 0.4);
-    animation: floating 3s ease-in-out infinite;
 }
 
-/* Animasi kartu melayang halus */
-@keyframes floating {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+.slide { 
+    display: none; 
+    text-align: center; 
+    animation: fadeIn 0.8s ease; 
+    width: auto; 
+    max-width: 95vw; 
+    padding: 20px; 
 }
 
-/* Styling Confetti */
-.confetti {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    background-color: #f00;
-    z-index: 100;
-    animation: confetti-fall 3s linear forwards;
+.slide.active { 
+    display: flex !important; 
+    flex-direction: column; 
+    align-items: center; 
 }
 
-@keyframes confetti-fall {
-    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(20px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+.card-box { 
+    background: rgba(255, 255, 255, 0.45); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 40px 30px; 
+    border-radius: 30px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+    width: 350px;
+}
+
+/* --- INPUT & BUTTONS UMUM --- */
+input { 
+    width: 100%; 
+    padding: 12px; 
+    border: 2px solid white; 
+    border-radius: 15px; 
+    text-align: center; 
+    font-size: 18px; 
+    margin: 20px 0; 
+    outline: none; 
+    background: rgba(255,255,255,0.5);
+}
+
+.btn-group { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+
+button { 
+    padding: 12px 25px; 
+    border: none; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    transition: 0.3s; 
+}
+
+.primary { background: var(--pink); color: white; }
+.secondary { background: rgba(0,0,0,0.1); color: #555; }
+button:hover { transform: scale(1.05); }
+
+/* --- STYLE BARU: TOMBOL KADO UNIK (SLIDE 9) --- */
+.btn-gift {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.btn-gift:hover { 
+    transform: translateY(-5px) scale(1.02); 
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15); 
+}
+
+@keyframes pulse-soft { 
+    0%, 100% { transform: scale(1); } 
+    50% { transform: scale(1.03); } 
+}
+
+.btn-video { background: linear-gradient(45deg, #ff788d, #ffb1b1); animation: pulse-soft 3s infinite ease-in-out; }
+.btn-audio { background: linear-gradient(45deg, #6c5ce7, #a29bfe); animation: pulse-soft 3s infinite ease-in-out 0.5s; }
+.btn-surat { background: linear-gradient(45deg, #fdcb6e, #ffeaa7); color: #6d4c41; animation: pulse-soft 3s infinite ease-in-out 1s; }
+
+/* --- ELEMEN TAMBAHAN --- */
+.gif-frame { 
+    width: 220px; height: 220px; 
+    margin-bottom: 20px; 
+    border-radius: 20px; 
+    object-fit: cover; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+}
+
+.surat-teks { 
+    text-align: left; 
+    background: rgba(255, 255, 255, 0.9); 
+    padding: 25px; 
+    border-radius: 20px; 
+    line-height: 1.6; 
+    font-size: 14px; 
+    min-height: 200px; 
+    border-left: 5px solid var(--pink); 
+    width: 350px; 
+}
+
+/* --- PANEL SPLIT (KADO) --- */
+.split-wrapper { 
+    display: flex; 
+    align-items: stretch; 
+    transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1); 
+    border-radius: 30px; 
+    overflow: hidden; 
+    background: rgba(255, 255, 255, 0.85); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    backdrop-filter: blur(10px);
+}
+
+.card-main { width: 340px; padding: 30px; z-index: 2; flex-shrink: 0; }
+.card-side { 
+    width: 0; opacity: 0; 
+    transition: 0.7s ease; 
+    display: flex; flex-direction: column; 
+    align-items: center; justify-content: center; 
+    overflow: hidden; 
+}
+
+.split-wrapper.active .card-side { width: 450px; opacity: 1; padding: 30px; border-left: 1px solid rgba(0,0,0,0.05); }
+
+.video-container { 
+    width: 100%; aspect-ratio: 16/9; 
+    background: #000; border-radius: 15px; 
+    overflow: hidden; 
+}
+
+@media (max-width: 850px) {
+    .split-wrapper.active { flex-direction: column; height: auto; max-height: 90vh; overflow-y: auto; }
+    .split-wrapper.active .card-side { width: 340px; height: auto; border-left: none; border-top: 1px solid #eee; }
+    .split-wrapper.active .card-main { border-radius: 30px 30px 0 0; }
+}
+/* Menghilangkan kotak putih hanya di slide 5, 6, dan 7 */
+#slide5 .card-box, 
+#slide6 .card-box, 
+#slide7 .card-box {
+    background: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Membuat teks di slide tersebut lebih menonjol */
+#slide5 p, #slide6 p, #slide7 p {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    max-width: 300px;
+    line-height: 1.5;
 }
